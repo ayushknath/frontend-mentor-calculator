@@ -1,0 +1,228 @@
+:root {
+  --ff-base: "League Spartan", sans-serif;
+
+  --bg-neutral-100: #3a4764;
+  --bg-neutral-101: #232c43;
+  --bg-neutral-102: #182034;
+
+  --bg-accent-100: #d03f2f;
+  --bg-accent-101: #eae3dc;
+  --bg-accent-102: #637097;
+
+  --shadow-accent-100: #93261a;
+  --shadow-accent-101: #b4a597;
+  --shadow-accent-102: #404e72;
+
+  --text-accent-100: #444b5a;
+
+  --w-app: 32rem;
+
+  --rounded-full: 9999px;
+  --rounded-md: 0.375rem;
+
+  --shadow-100: 0 4px var(--shadow-accent-100);
+  --shadow-101: 0 4px var(--shadow-accent-101);
+  --shadow-102: 0 4px var(--shadow-accent-102);
+
+  --grid-cols-4: repeat(4, minmax(0, 1fr));
+  --grid-rows-5: repeat(5, minmax(0, 1fr));
+  --col-span-2: span 2 / span 2;
+}
+
+/* DEFAULTS AND RESETS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: var(--ff-base);
+}
+
+button {
+  border: 0;
+  outline: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.col-span-2 {
+  grid-column: var(--col-span-2);
+}
+
+/* APP CONTAINER */
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  background-color: var(--bg-neutral-100);
+}
+
+/* HEADER */
+
+header {
+  width: var(--w-app);
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  color: #fff;
+}
+
+header > .calculator-logo {
+  font-size: 1.75rem;
+}
+
+header > .calculator-theme {
+  display: flex;
+  align-items: end;
+  column-gap: 2.25rem;
+}
+
+header > .calculator-theme > :nth-child(1) {
+  font-size: 0.875rem;
+}
+
+header > .calculator-theme > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+
+header > .calculator-theme .theme-indicators {
+  display: flex;
+  align-items: center;
+  column-gap: 1.12rem;
+  font-size: 1rem;
+}
+
+header > .calculator-theme .toggle-container {
+  width: 4.375rem;
+  padding: 4px;
+  border-radius: var(--rounded-full);
+  background-color: var(--bg-neutral-101);
+}
+
+header > .calculator-theme .toggle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--rounded-full);
+  background-color: var(--bg-accent-100);
+}
+
+/* CALCULATOR BODY */
+.calculator-body {
+  width: var(--w-app);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+/* CALCULATOR DISPLAY */
+.calculator-display {
+  height: 9rem;
+  color: #fff;
+}
+
+.calculator-display > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem;
+  background-color: var(--bg-neutral-102);
+}
+
+.calculator-display > .secondary-display {
+  height: 40%;
+  font-size: 1.25rem;
+  border-radius: var(--rounded-md) var(--rounded-md) 0 0;
+}
+
+.calculator-display > .primary-display {
+  height: 60%;
+  font-size: 3.5rem;
+  border-radius: 0 0 var(--rounded-md) var(--rounded-md);
+}
+
+/* CALCULATOR KEYS */
+.calculator-keys {
+  display: grid;
+  grid-template: var(--grid-rows-5) / var(--grid-cols-4);
+  gap: 1.5rem;
+  padding: 1.75rem;
+  border-radius: var(--rounded-md);
+  background-color: var(--bg-neutral-101);
+}
+
+.calculator-keys > button {
+  padding: 0.75rem 0;
+  font-size: 1.75rem;
+  border-radius: var(--rounded-md);
+}
+
+.calculator-keys > button[data-number],
+.calculator-keys > button[data-operator] {
+  color: var(--text-accent-100);
+  box-shadow: var(--shadow-101);
+  background-color: var(--bg-accent-101);
+}
+
+.calculator-keys > button[data-delete],
+.calculator-keys > button[data-reset] {
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-102);
+  background-color: var(--bg-accent-102);
+}
+
+.calculator-keys > button[data-result] {
+  color: #fff;
+  box-shadow: var(--shadow-100);
+  background-color: var(--bg-accent-100);
+}
+
+.calculator-keys > button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* MEDIA QUERY FOR TABLETS AND MOBILES */
+@media (max-width: 768px) {
+  :root {
+    --w-app: 20.437rem;
+  }
+
+  /* CALCULATOR DISPLAY */
+  .calculator-display {
+    height: 7rem;
+  }
+
+  /* CALCULATOR KEYS */
+  .calculator-keys {
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .calculator-keys > button[data-delete],
+  .calculator-keys > button[data-reset],
+  .calculator-keys > button[data-result] {
+    font-size: 1.375rem;
+  }
+}

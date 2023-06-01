@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <!-- Logo -->
+        <div class="calculator-logo">
+          <span>calc</span>
+        </div>
+
+        <!-- Theme -->
+        <div class="calculator-theme">
+          <span>THEME</span>
+          <div>
+            <!-- Theme indicators -->
+            <ul class="theme-indicators">
+              <li>
+                <button data-theme-indicator>1</button>
+              </li>
+              <li>
+                <button data-theme-indicator>2</button>
+              </li>
+              <li>
+                <button data-theme-indicator>3</button>
+              </li>
+            </ul>
+
+            <!-- Theme toggle -->
+            <div class="toggle-container">
+              <div class="toggle"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Calculator -->
+      <div class="calculator-body">
+        <!-- Calculator display -->
+        <div class="calculator-display">
+          <div class="secondary-display" data-previous-operand></div>
+          <div class="primary-display" data-current-operand></div>
+        </div>
+
+        <!-- Calculator keys -->
+        <div class="calculator-keys">
+          <button data-number>7</button>
+          <button data-number>8</button>
+          <button data-number>9</button>
+          <button data-delete>DEL</button>
+
+          <button data-number>4</button>
+          <button data-number>5</button>
+          <button data-number>6</button>
+          <button data-operator>+</button>
+
+          <button data-number>1</button>
+          <button data-number>2</button>
+          <button data-number>3</button>
+          <button data-operator>-</button>
+
+          <button data-number>.</button>
+          <button data-number>0</button>
+          <button data-operator>÷</button>
+          <button data-operator>×</button>
+
+          <button class="col-span-2" data-reset>RESET</button>
+          <button class="col-span-2" data-result>=</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/calculator.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>
